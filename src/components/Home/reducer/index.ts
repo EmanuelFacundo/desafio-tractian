@@ -1,4 +1,4 @@
-import { actionType, stateType } from "./types"
+import { actionDBType, stateType } from "./types"
 
 const INITIAL_STATE = {
   assets: {
@@ -36,10 +36,16 @@ const INITIAL_STATE = {
   }
 }
 
-export default function reducerHome(state: stateType = INITIAL_STATE, action: actionType) {
+export default function reducerHome(state: stateType = INITIAL_STATE, action: actionDBType) {
   switch (action.type) {
-    case 'GET_DB':
-      return { state: action.payload }
+    case 'GET_DB':      
+      return {...state, 
+        assets: action.payload.assets, 
+        units: action.payload.units,
+        users: action.payload.users,
+        companies: action.payload.companies
+      }
+    
     default: 
       return state
   }

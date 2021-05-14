@@ -5,9 +5,9 @@ export type stateType = {
   companies: companiesType;
 }
 
-export type actionType = {
+export type actionDBType = {
   type: string
-  payload: Object
+  payload: stateType
 }
 
 export type assetsType = {

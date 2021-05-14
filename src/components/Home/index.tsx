@@ -6,9 +6,7 @@ import { getDB } from './reducer/action'
 import { stateType } from './reducer/types'
 
 class Home extends React.Component<stateProps, stateType>{
-  constructor(props: stateProps) {
-    super(props)
-  }
+  
   componentDidMount() {
     this.props.getDB()
   }
@@ -16,21 +14,20 @@ class Home extends React.Component<stateProps, stateType>{
   render() {
     console.log(this.props.data)
     return (
-      <h1>HOME</h1>
+      <>
+      </>
     )
   }
 
 }
 
 type stateProps = {
-  data: any;
-  getDB: any;
+  data: stateType;
+  getDB: () => (dispatch: Dispatch<AnyAction>) => void;
 }
 
 const mapStateToProps = (state: stateProps) => ({ 
-  data: state.data?.state ? 
-  state.data?.state : 
-  state.data 
+  data: state.data
 })
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => bindActionCreators({ 
   getDB 

@@ -1,26 +1,62 @@
-import Home from "../Home"
+import React from 'react'
+import { AnyAction, bindActionCreators, Dispatch } from 'redux'
+import { connect } from 'react-redux'
+
+import { companiesType } from './reducer/types'
+import { getCompanies } from './reducer/action'
 
 import "./style.module.scss"
 
-export default function Menu() {
-  return (
-    <aside>
-      <nav>
-        <ul>
+class Menu extends React.Component<stateProps, companiesType>{
+
+  componentDidMount(){
+    this.props.getCompanies()
+  }
+
+  companiesRender() {
+    const companies = this.props.companies.list
+    return companies.map(company => {
+      return (
+        <ul key={company.id}>
           <li>
             <a href="/">
-              <Home />
+              <h1>{company.name}</h1>
             </a>
           </li>
         </ul>
-        <ul>
-          <li>
-            <a href="/">
-            <h1>Company Name</h1>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-  )
+      )
+    })
+  }
+
+  render() {
+    return (
+      <aside>
+        <nav>
+          <ul>
+            <li>
+              <a href="/">
+                <h1>Home</h1>
+              </a>
+            </li>
+          </ul>
+          {this.companiesRender()}
+        </nav>
+      </aside>
+    )
+  }
+
 }
+
+type stateProps = {
+  companies: companiesType
+  getCompanies: () => (dispatch: Dispatch<AnyAction>) => void;
+}
+
+const mapStateToProps = (state: stateProps) => ({
+  companies: state.companies
+})
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => bindActionCreators({
+  getCompanies
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu)
