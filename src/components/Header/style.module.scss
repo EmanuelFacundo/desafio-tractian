@@ -8,7 +8,9 @@ header {
   color: #fff;
   box-shadow: 0 0 0.5em #000000;
   z-index: 1;
-  position: fixed;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 
   padding: 1rem 2rem;
 

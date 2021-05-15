@@ -29,9 +29,16 @@ class Menu extends React.Component<stateProps, companiesType>{
   }
 
   render() {
+    const companies = this.props.companies.list
     return (
       <aside>
-        <nav>
+        <input type="checkbox"  id="hamburg" />
+        <label htmlFor="hamburg">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <nav id="hamburg">
           <ul>
             <li>
               <a href="/">
@@ -39,7 +46,7 @@ class Menu extends React.Component<stateProps, companiesType>{
               </a>
             </li>
           </ul>
-          {this.companiesRender()}
+          {companies.length > 0 ? this.companiesRender() : ''}
         </nav>
       </aside>
     )
