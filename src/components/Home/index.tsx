@@ -15,6 +15,7 @@ class Home extends React.Component<stateProps, stateType>{
     console.log(this.props.data)
     return (
       <>
+        <h1>Home</h1>
       </>
     )
   }

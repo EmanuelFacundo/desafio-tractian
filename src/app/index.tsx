@@ -1,10 +1,18 @@
+import Header from "../components/Header";
 import Menu from "../components/Menu";
+import Routes from "./Routes";
+
+import "./style.module.scss"
 
 function App() {
   return (
-    <div className="App">
-      <Menu />
-    </div>
+    <>
+      <Header />
+      <div>
+        <Menu />
+        <Routes />
+      </div>
+    </>
   );
 }
 

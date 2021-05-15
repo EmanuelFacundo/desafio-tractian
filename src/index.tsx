@@ -5,7 +5,6 @@ import promise from 'redux-promise'
 import thunk from 'redux-thunk'
 
 import App from './app'
-import Header from './components/Header';
 
 import reducers from './reducers'
 
@@ -15,8 +14,7 @@ const store = applyMiddleware(thunk, promise)(createStore)(reducers)
 
 ReactDOM.render(
   <Provider store={store}>
-    <Header />
-    <App />
+   <App />
   </Provider>,
   document.getElementById("root")
 );

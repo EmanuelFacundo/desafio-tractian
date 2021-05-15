@@ -38,7 +38,7 @@ class Menu extends React.Component<stateProps, companiesType>{
           <span></span>
           <span></span>
         </label>
-        <nav id="hamburg">
+        <nav>
           <ul>
             <li>
               <a href="/">
