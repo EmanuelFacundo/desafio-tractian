@@ -1,0 +1,75 @@
+.home {
+  width: 100%;
+  height: 100%;
+
+  padding-top: 2.5rem;
+  padding-left: 1rem;
+
+  display: flex;
+
+  font-family: "Noto Sans KR";
+
+  .title {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    .textAndInput {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding-left: 0.2rem;
+      padding-right: 2.3%;
+
+      div {
+        display: flex;
+        align-items: center;
+        input {
+          width: 10rem;
+          height: 1.5rem;
+
+          padding-left: 0.25rem;
+          padding-right: 0.25rem;
+
+          font-family: "Roboto";
+          font-weight: 300;
+          font-size: 1rem;
+
+          border: none;
+          border-bottom: 0.1rem solid #0000ff3d;
+          transition: 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-bottom: 0;
+            border-bottom: 0.1rem solid #0000ff;
+          }
+        }
+        button {
+          width: 1.5rem;
+          height: 1.5rem;
+
+          cursor: pointer;
+
+          border: none;
+          border-radius: 0.25rem;
+          
+          opacity: 85%;
+          
+          background-color: transparent;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpath d='M9.145 18.29c-5.042 0-9.145-4.102-9.145-9.145s4.103-9.145 9.145-9.145 9.145 4.103 9.145 9.145-4.102 9.145-9.145 9.145zm0-15.167c-3.321 0-6.022 2.702-6.022 6.022s2.702 6.022 6.022 6.022 6.023-2.702 6.023-6.022-2.702-6.022-6.023-6.022zm9.263 12.443c-.817 1.176-1.852 2.188-3.046 2.981l5.452 5.453 3.014-3.013-5.42-5.421z'/%3E%3C/svg%3E");
+        }
+      }
+    }
+
+    .bar {
+      width: 98%;
+      height: 0.3rem;
+
+      background-color: #005aa7;
+      border-radius: 0.5rem;
+    }
+  }
+}

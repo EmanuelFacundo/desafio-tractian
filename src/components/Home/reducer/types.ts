@@ -18,7 +18,11 @@ export type assetsType = {
   healthscore: number;
   name: string;
   image: string;
-  specifications: Array<number>
+  specifications: {
+    maxTemp: number;
+    power?: number;
+    rpm?: number;
+  }
   metrics: {
     totalCollectsUptime: number;
     totalUptime: number;

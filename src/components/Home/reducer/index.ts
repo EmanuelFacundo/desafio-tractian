@@ -9,7 +9,9 @@ const INITIAL_STATE = {
     healthscore: 0,
     name: "",
     image: "",
-    specifications: [],
+    specifications: {
+      maxTemp: 0
+    },
     metrics: {
       totalCollectsUptime: 0,
       totalUptime: 0,
