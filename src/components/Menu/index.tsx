@@ -32,7 +32,7 @@ class Menu extends React.Component<stateProps, companiesType>{
     const companies = this.props.companies.list
     return (
       <aside>
-        <input type="checkbox"  id="hamburg" />
+        <input defaultChecked={true} type="checkbox"  id="hamburg" />
         <label htmlFor="hamburg">
           <span></span>
           <span></span>
