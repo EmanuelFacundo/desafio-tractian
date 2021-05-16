@@ -1,0 +1,77 @@
+.asset{
+  width: 37.4rem;
+  height: 15rem;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  align-items: baseline;
+  justify-content: space-evenly;
+
+  margin: 0.9rem 0.9rem 0rem 0rem;
+  padding: 0.5rem;
+
+  border-left: 0.2rem solid #4169e163;
+
+  
+  .informations{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .text{
+      display: flex;
+      justify-content: space-between;
+
+      font-family: "Roboto";
+      
+      .inOperation{
+        color: 	#008000;
+      }
+
+      .inAlert{
+        color: #FF0000;
+      }
+      
+      .inDowntime{
+        color: #FFA500;
+      }
+  
+      p{
+        margin: 0.25rem
+      }
+    }
+    .visual{
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      
+      img{
+        margin-top: 1rem;
+        width: 10rem;
+        height: 9rem;
+      }
+    }
+    
+  }
+}
+
+@media (max-width: 768px){
+  .asset{
+    width: 20rem;
+
+    .informations{
+      .visual{
+        img {
+          width: 7rem;
+          height: 7rem;
+        }
+      }
+    }
+  }
+}
