@@ -9,30 +9,35 @@ import './style.scss'
 import Asset from '../Asset'
 
 class Home extends React.Component<stateProps, stateType>{
-  
-  _assets:Array<assetsType>
-  
-  constructor(props:stateProps){
-    super(props) 
-    
+
+  _assets: Array<assetsType>
+
+  constructor(props: stateProps) {
+    super(props)
+
     this._assets = this.props.data.assets
   }
-  
+
   componentDidMount() {
     this.props.getDB()
   }
-  
-  assetsRender(){
-    
+
+  assetsRender() {
+
     return this._assets.map(asset => {
+      const unitId = asset.unitId
+      const companyId = asset.companyId
       return (
         <section key={asset.id}>
-          <Asset asset={asset} />
+          <Asset
+            asset={asset}
+            unity={this.props.data.units[unitId - 1]} 
+            company={this.props.data.companies[companyId-1]}/>
         </section>
       )
     })
   }
-  
+
   render() {
     this._assets = this.props.data.assets
 
@@ -50,7 +55,7 @@ class Home extends React.Component<stateProps, stateType>{
         </div>
 
         <div className="assets">
-          {this._assets[1]?.id ? this.assetsRender() : <h3>Carregando...</h3> }
+          {this._assets[1]?.id ? this.assetsRender() : <h3>Carregando...</h3>}
         </div>
       </div>
     )

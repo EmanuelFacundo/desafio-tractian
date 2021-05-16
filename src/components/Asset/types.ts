@@ -19,5 +19,15 @@ export type propsAssets = {
     }
     unitId: number;
     companyId: number;
+  },
+  unity: {
+    id: number;
+    name: string;
+    company: string;
+  }
+
+  company: {
+    id: number;
+    name: string;
   }
 }

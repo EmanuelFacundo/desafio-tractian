@@ -20,22 +20,22 @@ const INITIAL_STATE = {
     unitId: 0,
     companyId: 0,
   }],
-  units: {
+  units: [{
     id: 0,
     name: "",
     company: ""
-  },
-  users: {
+  }],
+  users: [{
     id: 0,
     email: "",
     name: "",
     unitId: 0,
     companyId: 0
-  },
-  companies: {
+  }],
+  companies: [{
     id: 0,
     name: ""
-  }
+  }]
 }
 
 export default function reducerHome(state: stateType = INITIAL_STATE, action: actionDBType) {

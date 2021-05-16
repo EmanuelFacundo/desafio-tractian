@@ -1,8 +1,8 @@
 export type stateType = {
   assets: Array<assetsType>;
-  units: unitsType;
-  users: usersType;
-  companies: companiesType;
+  units: Array<unitsType>;
+  users: Array<usersType>;
+  companies: Array<companiesType>;
 }
 
 export type actionDBType = {
