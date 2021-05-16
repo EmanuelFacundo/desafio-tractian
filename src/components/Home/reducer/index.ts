@@ -1,7 +1,7 @@
 import { actionDBType, stateType } from "./types"
 
 const INITIAL_STATE = {
-  assets: {
+  assets: [{
     id: 0,
     sensors: [],
     model: "",
@@ -19,7 +19,7 @@ const INITIAL_STATE = {
     },
     unitId: 0,
     companyId: 0,
-  },
+  }],
   units: {
     id: 0,
     name: "",

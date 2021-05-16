@@ -1,5 +1,5 @@
 export type stateType = {
-  assets: assetsType;
+  assets: Array<assetsType>;
   units: unitsType;
   users: usersType;
   companies: companiesType;
