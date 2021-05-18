@@ -1,5 +1,5 @@
 .asset{
-  width: 37.4rem;
+  width: 37.5rem;
   height: 15rem;
 
   display: flex;
@@ -53,14 +53,20 @@
       
       img{
         margin-top: 1rem;
-        width: 10rem;
-        height: 9rem;
+        width: 11rem;
+        height: 10rem;
       }
     }
     
   }
 }
 
+@media (max-width: 1550px){
+  .asset{
+    width: 37rem;
+    height: 15rem;
+  }
+}
 @media (max-width: 768px){
   .asset{
     width: 20rem;
@@ -68,8 +74,8 @@
     .informations{
       .visual{
         img {
-          width: 7rem;
-          height: 7rem;
+          width: 9rem;
+          height: 8rem;
         }
       }
     }

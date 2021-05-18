@@ -82,7 +82,9 @@
     flex-direction: row;
     flex-wrap: wrap;
 
-    justify-content: center;
+    margin: 0.25rem;
+
+    justify-content: space-between;
   }
 }
 
