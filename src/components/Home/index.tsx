@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import { AnyAction, bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
@@ -11,30 +11,69 @@ import Asset from '../Asset'
 class Home extends React.Component<stateProps, stateType>{
 
   _assets: Array<assetsType>
+  _assetSearch: string
 
   constructor(props: stateProps) {
     super(props)
 
     this._assets = this.props.data.assets
+    this._assetSearch = ""
+
+    this.assetsRender = this.assetsRender.bind(this)
+    this.setAssetSearch = this.setAssetSearch.bind(this)
+  }
+
+  setAssetSearch(name: ChangeEvent<HTMLInputElement>) {
+
+    this._assetSearch = name.target.value ? name.target.value : ""
   }
 
   componentDidMount() {
     this.props.getDB()
   }
 
-  assetsRender() {
+  assetsRender(click?:boolean) {
+
+    if(click){
+      this.forceUpdate()
+    }
+
+    // if (this._assetSearch) {
+
+    //   return this._assets.map(asset => {
+    //     if (asset.name.match(this._assetSearch)) {
+    //       const unitId = asset.unitId
+    //       const companyId = asset.companyId
+    //       return (
+    //         <section key={asset.id} >
+    //           <Asset
+    //             asset={asset}
+    //             unity={this.props.data.units[unitId - 1]}
+    //             company={this.props.data.companies[companyId - 1]} />
+    //         </section>
+    //       )
+
+    //     }
+
+    //     return "" // Somente pra retirar Warnings
+    //   })
+    // }
 
     return this._assets.map(asset => {
-      const unitId = asset.unitId
-      const companyId = asset.companyId
-      return (
-        <section key={asset.id}>
-          <Asset
-            asset={asset}
-            unity={this.props.data.units[unitId - 1]} 
-            company={this.props.data.companies[companyId-1]}/>
-        </section>
-      )
+      if (asset.name.match(this._assetSearch)) {
+        const unitId = asset.unitId
+        const companyId = asset.companyId
+        console.log(asset.name)
+        return (
+          <section key={asset.id} >
+            <Asset
+              asset={asset}
+              unity={this.props.data.units[unitId - 1]}
+              company={this.props.data.companies[companyId - 1]} />
+          </section>
+        )
+      }
+      return ""
     })
   }
 
@@ -47,15 +86,19 @@ class Home extends React.Component<stateProps, stateType>{
           <span className="titleNav">
             <h1>ATIVOS</h1>
             <div>
-              <input placeholder="Pesquisar ativo..." type="text" />
-              <button></button>
+              <input
+                placeholder="Pesquisar ativo..."
+                onChange={this.setAssetSearch}
+                type="text"
+              />
+              <button onClick={() => this.assetsRender(true)} />
             </div>
           </span>
           <span className="bar"></span>
         </div>
 
         <div className="assets">
-          {this._assets[1]?.id ? this.assetsRender() : <h3>Carregando...</h3>}
+          {this._assets[1]?.id || this._assetSearch ? this.assetsRender() : <h3>Carregando...</h3>}
         </div>
       </div>
     )

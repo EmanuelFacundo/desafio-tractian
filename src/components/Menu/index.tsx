@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 import { companiesType } from './reducer/types'
 import { getCompanies } from './reducer/action'
 
-import "./style.module.scss"
+import "./style.scss"
 
 class Menu extends React.Component<stateProps, companiesType>{
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.getCompanies()
   }
 
@@ -32,7 +32,7 @@ class Menu extends React.Component<stateProps, companiesType>{
     const companies = this.props.companies.list
     return (
       <aside>
-        <input defaultChecked={true} type="checkbox"  id="hamburg" />
+        <input defaultChecked={true} type="checkbox" id="hamburg" />
         <label htmlFor="hamburg">
           <span></span>
           <span></span>
@@ -46,9 +46,17 @@ class Menu extends React.Component<stateProps, companiesType>{
               </a>
             </li>
           </ul>
-          {companies.length > 0 ? this.companiesRender() : ''}
+          {companies.length > 0 ? this.companiesRender() : (
+            <ul>
+              <li>
+                <a href="/">
+                  <h1>...</h1>
+                </a>
+              </li>
+            </ul>
+          )}
         </nav>
-      </aside>
+      </aside >
     )
   }
 

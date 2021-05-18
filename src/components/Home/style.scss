@@ -31,7 +31,7 @@
         align-items: center;
         border-bottom: 0.1rem solid #0000ff3d;
         input {
-          width: 12rem;
+          width: 10rem;
           height: 1.5rem;
 
           margin-right: 0.25rem;
@@ -45,7 +45,7 @@
           border: none;
           transition: 0.4s ease;
           &:focus {
-            width: 10rem;
+            width: 14rem;
             outline: none;
             border-radius: 0.25rem 0.25rem 0rem 0rem;
             background-color: #7a7a833d;
@@ -97,6 +97,10 @@
           margin-right: 0.5rem;
           input {
             width: 8rem;
+
+            &:focus {
+              width: 11.5rem;
+            }
           }
         }
       }
