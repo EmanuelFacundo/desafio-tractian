@@ -26,6 +26,7 @@ class Home extends React.Component<stateProps, stateType>{
   setAssetSearch(name: ChangeEvent<HTMLInputElement>) {
 
     this._assetSearch = name.target.value ? name.target.value : ""
+    this.forceUpdate()
   }
 
   componentDidMount() {
@@ -38,32 +39,10 @@ class Home extends React.Component<stateProps, stateType>{
       this.forceUpdate()
     }
 
-    // if (this._assetSearch) {
-
-    //   return this._assets.map(asset => {
-    //     if (asset.name.match(this._assetSearch)) {
-    //       const unitId = asset.unitId
-    //       const companyId = asset.companyId
-    //       return (
-    //         <section key={asset.id} >
-    //           <Asset
-    //             asset={asset}
-    //             unity={this.props.data.units[unitId - 1]}
-    //             company={this.props.data.companies[companyId - 1]} />
-    //         </section>
-    //       )
-
-    //     }
-
-    //     return "" // Somente pra retirar Warnings
-    //   })
-    // }
-
     return this._assets.map(asset => {
       if (asset.name.match(this._assetSearch)) {
         const unitId = asset.unitId
         const companyId = asset.companyId
-        console.log(asset.name)
         return (
           <section key={asset.id} >
             <Asset
@@ -76,7 +55,7 @@ class Home extends React.Component<stateProps, stateType>{
       return ""
     })
   }
-
+  
   render() {
     this._assets = this.props.data.assets
 
