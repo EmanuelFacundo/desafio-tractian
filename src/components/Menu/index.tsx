@@ -19,7 +19,7 @@ class Menu extends React.Component<stateProps, companiesType>{
       return (
         <ul key={company.id}>
           <li>
-            <a href="/">
+            <a href={`/${company.name.replace(" ", "-")}/${company.id}`}>
               <h1>{company.name}</h1>
             </a>
           </li>
