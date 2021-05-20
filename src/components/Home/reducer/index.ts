@@ -15,7 +15,7 @@ const INITIAL_STATE = {
     metrics: {
       totalCollectsUptime: 0,
       totalUptime: 0,
-      lastuptimeAt: 0
+      lastUptimeAt: ""
     },
     unitId: 0,
     companyId: 0,

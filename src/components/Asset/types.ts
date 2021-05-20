@@ -15,7 +15,7 @@ export type propsAssets = {
     metrics: {
       totalCollectsUptime: number;
       totalUptime: number;
-      lastuptimeAt: number;
+      lastUptimeAt: string;
     }
     unitId: number;
     companyId: number;
