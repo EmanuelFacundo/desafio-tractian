@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import { AnyAction, bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
@@ -19,53 +19,71 @@ type stateCompanyType = {
 
 class Company extends React.Component<stateCompanyType, stateProps>{
 
+  unitSearch = ""
+  assetSearch = ""
   assetsCompany: Array<assetsType>
   company = {
     id: parseInt(this.props.match.url
       .slice(this.props.match.url.length - 1)),
     name: ""
   }
-  unitsCompany = 0
 
   constructor(props: stateCompanyType) {
     super(props)
 
     this.assetsCompany = this.props.assets
+
+    this.setUnitSearch = this.setUnitSearch.bind(this)
+    this.setAssetSearch = this.setAssetSearch.bind(this)
   }
   componentDidMount() {
     this.props.getDB()
   }
 
+  setAssetSearch(asset: ChangeEvent<HTMLInputElement>) {
+    this.assetSearch = asset.target.value ? asset.target.value : ""
+    this.forceUpdate()
+  }
+
+  setUnitSearch(unit: ChangeEvent<HTMLInputElement>) {
+    this.unitSearch = unit.target.value ? unit.target.value : ""
+    this.forceUpdate()
+  }
+
   renderAssets(index: number) {
     return this.props.assets.map(asset => {
-      return (
-        <section key={asset.id}>
-          <Asset asset={asset} />
-        </section>
-      )
+      if (asset.name.match(this.assetSearch)) {
+        return (
+          <section key={asset.id}>
+            <Asset asset={asset} />
+          </section>
+        )
+      }
+
+      return ""
     })
   }
 
   renderUnits() {
     return this.props.units.map((unit, index) => {
+      if (unit.name.match(this.unitSearch)) {
+        return (
+          <div key={unit.id} className="units">
+            <div className="nav">
+              {index > 0 ? <span className="bar"></span> : ""}
+              <div className="title">
+                <h1>{unit.name}</h1>
 
-      return (
-        <div key={unit.id} className="units">
-          <div className="nav">
-            {index > 0 ? <span className="bar"></span> : ""}
-            <div className="title">
-              <h1>{unit.name}</h1>
-              <span>
-                <input placeholder="Pesquisa ativo..." type="text" />
-                <button></button>
-              </span>
+              </div>
             </div>
+            <section className="assets">
+              {this.renderAssets(index)}
+            </section>
           </div>
-          <section className="assets">
-            {this.renderAssets(index)}
-          </section>
-        </div>
-      )
+        )
+      }
+
+      return ""
     })
   }
 
@@ -80,11 +98,29 @@ class Company extends React.Component<stateCompanyType, stateProps>{
         .slice(1, (this.props.match.url.length - 2))
         .replace("-", " ")
 
-      this.unitsCompany = this.props.units.length
-
       return (
         <div className="company">
-          <h1>{this.company.name}</h1>
+          <div className="companyContainer">
+            <h1>{this.company.name}</h1>
+            <div className="inputs">
+              <span className="input">
+                <input
+                  placeholder="Pesquisar unidade..."
+                  type="text"
+                  onChange={this.setUnitSearch}
+                />
+                <button></button>
+              </span>
+            <span className="input">
+              <input
+                placeholder="Pesquisar ativo..."
+                type="text"
+                onChange={this.setAssetSearch}
+              />
+              <button></button>
+            </span>
+            </div>
+          </div>
           <span className="bar"></span>
           {this.renderUnits()}
         </div>

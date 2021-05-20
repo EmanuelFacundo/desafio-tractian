@@ -66,7 +66,7 @@ class Home extends React.Component<stateProps, stateType>{
             <h1>ATIVOS</h1>
             <div>
               <input
-                placeholder="Pesquisar ativo..."
+                placeholder="Pesquisarr ativo..."
                 onChange={this.setAssetSearch}
                 type="text"
               />
