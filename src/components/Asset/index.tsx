@@ -27,8 +27,12 @@ export default function Asset(props: propsAssets) {
 
   return (
     <div className="asset">
-      <h2>{props.company.name}</h2>
-      <h3>{props.unity.name}</h3>
+      {props.unity && props.company ?
+        <>
+          <h2>{props.company.name}</h2>
+          <h3>{props.unity.name}</h3>
+        </> : ""}
+
       <div className="informations">
         <div className="text">
           <p>Ativo: <b>{asset.name}</b> </p>

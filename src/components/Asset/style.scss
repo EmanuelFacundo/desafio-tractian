@@ -70,9 +70,11 @@
 @media (max-width: 768px){
   .asset{
     width: 20rem;
+    font-size: 0.55rem;
 
     .informations{
       .visual{
+        padding: 0.5rem 0.25rem;
         img {
           width: 9rem;
           height: 8rem;
