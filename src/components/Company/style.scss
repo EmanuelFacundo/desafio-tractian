@@ -10,7 +10,6 @@
   flex-direction: column;
 
   font-family: "Noto Sans KR";
-  align-items: center;
 
   .companyContainer {
     width: 100%;
@@ -58,6 +57,12 @@
       flex-wrap: wrap;
       justify-content: space-between;
     }
+  }
+
+  .graphic{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
 }
 
