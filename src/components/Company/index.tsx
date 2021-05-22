@@ -24,6 +24,7 @@ class Company extends React.Component<stateCompanyType, stateProps>{
   unitSearch = ""
   assetSearch = ""
   assetsCompany: Array<assetsType>
+  widthGraphic = window.innerWidth <= 768 ? 0.85 * window.innerWidth : 0.25 * window.innerWidth
   company = {
     id: parseInt(this.props.match.url
       .slice(this.props.match.url.length - 1)),
@@ -32,6 +33,7 @@ class Company extends React.Component<stateCompanyType, stateProps>{
 
   optionsg1 = {
     chart: {
+      width: this.widthGraphic,
       type: 'column'
     },
     title: {
@@ -81,6 +83,7 @@ class Company extends React.Component<stateCompanyType, stateProps>{
 
   optionsg2 = {
     chart: {
+      width: this.widthGraphic,
       type: 'column'
     },
     title: {
@@ -112,7 +115,7 @@ class Company extends React.Component<stateCompanyType, stateProps>{
     series: [{
       name: 'Total de Coletas',
       data: [0]
-    },{
+    }, {
       name: 'Total de Horas de Coletas',
       data: [0]
     }]
@@ -142,7 +145,7 @@ class Company extends React.Component<stateCompanyType, stateProps>{
 
   renderAssets(index: number) {
     return this.props.assets.map(asset => {
-      if(index === 1){
+      if (index === 1) {
         const totalUptime = asset.metrics.totalUptime.toFixed(2)
         this.optionsg1.series[0].data.push([asset.name, asset.healthscore])
         this.optionsg2.xAxis.categories.push(asset.name)
@@ -169,7 +172,6 @@ class Company extends React.Component<stateCompanyType, stateProps>{
         return (
           <div key={unit.id} className="units">
             <div className="nav">
-              {index > 0 ? <span className="bar"></span> : ""}
               <div className="title">
                 <h1>{unit.name}</h1>
 
@@ -187,7 +189,7 @@ class Company extends React.Component<stateCompanyType, stateProps>{
   }
 
   render() {
-    
+
     this.optionsg1.series[0].data.pop()
     this.optionsg2.xAxis.categories.pop()
     this.optionsg2.series[0].data.pop()
@@ -226,15 +228,13 @@ class Company extends React.Component<stateCompanyType, stateProps>{
             </div>
           </div>
           <span className="bar"></span>
-          <section className="graphic">
+          <section className="graphics">
             <HighchartsReact
               highcharts={Highcharts}
-              // constructorType={'stockChart'}
               options={this.optionsg1}
             />
             <HighchartsReact
               highcharts={Highcharts}
-              // constructorType={'stockChart'}
               options={this.optionsg2}
             />
           </section>

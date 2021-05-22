@@ -33,9 +33,9 @@ class Home extends React.Component<stateProps, stateType>{
     this.props.getDB()
   }
 
-  assetsRender(click?:boolean) {
+  assetsRender(clickSearch?:boolean) {
 
-    if(click){
+    if(clickSearch){
       this.forceUpdate()
     }
 
@@ -66,7 +66,7 @@ class Home extends React.Component<stateProps, stateType>{
             <h1>ATIVOS</h1>
             <div>
               <input
-                placeholder="Pesquisarr ativo..."
+                placeholder="Pesquisar ativo..."
                 onChange={this.setAssetSearch}
                 type="text"
               />

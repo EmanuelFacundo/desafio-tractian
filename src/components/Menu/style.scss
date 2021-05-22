@@ -11,7 +11,7 @@ aside {
     width: 14.5rem;
     height: 100%;
     padding-top: 2.5rem;
-
+    
     position: -webkit-sticky; /* Safari */
     position: sticky;
 
@@ -68,6 +68,14 @@ aside {
           background-color: #4169e19d;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 1550px) {
+  aside{
+    nav{
+      width: 13rem;
     }
   }
 }
