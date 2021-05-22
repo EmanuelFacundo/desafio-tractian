@@ -245,7 +245,7 @@ class Company extends React.Component<stateCompanyType, stateProps>{
 
     return (
       <>
-
+        <h1 style={{margin: 30}}>Carregando...</h1>
       </>
     )
 
